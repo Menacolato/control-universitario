@@ -19,4 +19,7 @@ app.use("/materias", require("./routes/materias.routes"));
 app.use("/inscripciones", require("./routes/inscripciones.routes"));
 
 const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => console.log(`✅ Control Universitario corriendo en http://localhost:${PORT}`));
+
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`✅ Running on port ${PORT}`);
+});
