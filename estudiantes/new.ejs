@@ -1,0 +1,17 @@
+<%- include("../partials/head") %>
+<%- include("../partials/navbar") %>
+
+<h1>Nuevo estudiante</h1>
+
+<form method="POST" action="/estudiantes" class="form">
+  <label>Carnet <input name="carnet" required /></label>
+  <label>Nombres <input name="nombres" required /></label>
+  <label>Apellidos <input name="apellidos" required /></label>
+  <label>Email <input name="email" type="email" required /></label>
+  <div class="row">
+    <button class="btn" type="submit">Guardar</button>
+    <a class="btn ghost" href="/estudiantes">Cancelar</a>
+  </div>
+</form>
+
+<%- include("../partials/footer") %>

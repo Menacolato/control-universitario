@@ -1,0 +1,16 @@
+<%- include("../partials/head") %>
+<%- include("../partials/navbar") %>
+
+<h1>Nueva materia</h1>
+
+<form method="POST" action="/materias" class="form">
+  <label>Código <input name="codigo" required /></label>
+  <label>Nombre <input name="nombre" required /></label>
+  <label>UV <input name="uv" type="number" min="1" max="10" value="4" required /></label>
+  <div class="row">
+    <button class="btn" type="submit">Guardar</button>
+    <a class="btn ghost" href="/materias">Cancelar</a>
+  </div>
+</form>
+
+<%- include("../partials/footer") %>

@@ -1,0 +1,22 @@
+<%- include("../partials/head") %>
+<%- include("../partials/navbar") %>
+
+<h1>Editar nota</h1>
+
+<div class="card">
+  <p><b>Estudiante:</b> <%= insc.estudiante %> (<%= insc.carnet %>)</p>
+  <p><b>Materia:</b> <%= insc.codigo %> - <%= insc.materia %></p>
+  <p><b>Ciclo:</b> <%= insc.ciclo %></p>
+</div>
+
+<form method="POST" action="/inscripciones/<%= insc.id %>?_method=PUT" class="form">
+  <label>Nota final (0-10)
+    <input name="nota_final" type="number" step="0.01" min="0" max="10" value="<%= insc.nota_final ?? '' %>" />
+  </label>
+  <div class="row">
+    <button class="btn" type="submit">Actualizar</button>
+    <a class="btn ghost" href="/inscripciones">Volver</a>
+  </div>
+</form>
+
+<%- include("../partials/footer") %>

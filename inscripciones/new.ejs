@@ -1,0 +1,35 @@
+<%- include("../partials/head") %>
+<%- include("../partials/navbar") %>
+
+<h1>Nueva inscripción</h1>
+
+<form method="POST" action="/inscripciones" class="form">
+  <label>Estudiante
+    <select name="estudiante_id" required>
+      <option value="">-- Selecciona --</option>
+      <% estudiantes.forEach(e => { %>
+        <option value="<%= e.id %>"><%= e.carnet %> - <%= e.nombres %> <%= e.apellidos %></option>
+      <% }) %>
+    </select>
+  </label>
+
+  <label>Materia
+    <select name="materia_id" required>
+      <option value="">-- Selecciona --</option>
+      <% materias.forEach(m => { %>
+        <option value="<%= m.id %>"><%= m.codigo %> - <%= m.nombre %></option>
+      <% }) %>
+    </select>
+  </label>
+
+  <label>Ciclo (ej: 2026-01)
+    <input name="ciclo" placeholder="2026-01" required />
+  </label>
+
+  <div class="row">
+    <button class="btn" type="submit">Guardar</button>
+    <a class="btn ghost" href="/inscripciones">Cancelar</a>
+  </div>
+</form>
+
+<%- include("../partials/footer") %>

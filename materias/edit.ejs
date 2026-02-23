@@ -1,0 +1,16 @@
+<%- include("../partials/head") %>
+<%- include("../partials/navbar") %>
+
+<h1>Editar materia</h1>
+
+<form method="POST" action="/materias/<%= materia.id %>?_method=PUT" class="form">
+  <label>Código <input name="codigo" value="<%= materia.codigo %>" required /></label>
+  <label>Nombre <input name="nombre" value="<%= materia.nombre %>" required /></label>
+  <label>UV <input name="uv" type="number" min="1" max="10" value="<%= materia.uv %>" required /></label>
+  <div class="row">
+    <button class="btn" type="submit">Actualizar</button>
+    <a class="btn ghost" href="/materias">Volver</a>
+  </div>
+</form>
+
+<%- include("../partials/footer") %>

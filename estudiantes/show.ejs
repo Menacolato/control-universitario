@@ -1,0 +1,33 @@
+<%- include("../partials/head") %>
+<%- include("../partials/navbar") %>
+
+<h1>Detalle del estudiante</h1>
+
+<div class="card">
+  <p><b>Carnet:</b> <%= estudiante.carnet %></p>
+  <p><b>Nombre:</b> <%= estudiante.nombres %> <%= estudiante.apellidos %></p>
+  <p><b>Email:</b> <%= estudiante.email %></p>
+
+  <div class="row">
+    <a class="btn" href="/estudiantes/<%= estudiante.id %>/edit">Editar</a>
+    <a class="btn ghost" href="/estudiantes">Volver</a>
+  </div>
+</div>
+
+<h2>Inscripciones</h2>
+<table>
+  <thead>
+    <tr><th>Ciclo</th><th>Materia</th><th>Nota</th></tr>
+  </thead>
+  <tbody>
+    <% inscripciones.forEach(i => { %>
+      <tr>
+        <td><%= i.ciclo %></td>
+        <td><%= i.codigo %> - <%= i.nombre %></td>
+        <td><%= i.nota_final ?? "—" %></td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>
+
+<%- include("../partials/footer") %>

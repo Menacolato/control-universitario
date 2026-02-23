@@ -1,0 +1,17 @@
+<%- include("../partials/head") %>
+<%- include("../partials/navbar") %>
+
+<h1>Editar estudiante</h1>
+
+<form method="POST" action="/estudiantes/<%= estudiante.id %>?_method=PUT" class="form">
+  <label>Carnet <input name="carnet" value="<%= estudiante.carnet %>" required /></label>
+  <label>Nombres <input name="nombres" value="<%= estudiante.nombres %>" required /></label>
+  <label>Apellidos <input name="apellidos" value="<%= estudiante.apellidos %>" required /></label>
+  <label>Email <input name="email" type="email" value="<%= estudiante.email %>" required /></label>
+  <div class="row">
+    <button class="btn" type="submit">Actualizar</button>
+    <a class="btn ghost" href="/estudiantes/<%= estudiante.id %>">Volver</a>
+  </div>
+</form>
+
+<%- include("../partials/footer") %>

@@ -1,0 +1,31 @@
+<%- include("../partials/head") %>
+<%- include("../partials/navbar") %>
+
+<div class="row">
+  <h1>Inscripciones</h1>
+  <a class="btn" href="/inscripciones/new">+ Nueva</a>
+</div>
+
+<table>
+  <thead>
+    <tr><th>Ciclo</th><th>Estudiante</th><th>Materia</th><th>Nota</th><th>Acciones</th></tr>
+  </thead>
+  <tbody>
+    <% inscripciones.forEach(i => { %>
+      <tr>
+        <td><%= i.ciclo %></td>
+        <td><%= i.carnet %> - <%= i.estudiante %></td>
+        <td><%= i.codigo %> - <%= i.materia %></td>
+        <td><%= i.nota_final ?? "—" %></td>
+        <td class="actions">
+          <a href="/inscripciones/<%= i.id %>/edit">Editar nota</a>
+          <form method="POST" action="/inscripciones/<%= i.id %>?_method=DELETE" class="inline">
+            <button class="danger" type="submit" onclick="return confirm('¿Eliminar inscripción?')">Eliminar</button>
+          </form>
+        </td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>
+
+<%- include("../partials/footer") %>

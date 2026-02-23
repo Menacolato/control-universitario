@@ -1,0 +1,31 @@
+<%- include("../partials/head") %>
+<%- include("../partials/navbar") %>
+
+<div class="row">
+  <h1>Estudiantes</h1>
+  <a class="btn" href="/estudiantes/new">+ Nuevo</a>
+</div>
+
+<table>
+  <thead>
+    <tr><th>Carnet</th><th>Nombre</th><th>Email</th><th>Acciones</th></tr>
+  </thead>
+  <tbody>
+    <% estudiantes.forEach(e => { %>
+      <tr>
+        <td><%= e.carnet %></td>
+        <td><%= e.nombres %> <%= e.apellidos %></td>
+        <td><%= e.email %></td>
+        <td class="actions">
+          <a href="/estudiantes/<%= e.id %>">Ver</a>
+          <a href="/estudiantes/<%= e.id %>/edit">Editar</a>
+          <form method="POST" action="/estudiantes/<%= e.id %>?_method=DELETE" class="inline">
+            <button class="danger" type="submit" onclick="return confirm('¿Eliminar estudiante?')">Eliminar</button>
+          </form>
+        </td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>
+
+<%- include("../partials/footer") %>
